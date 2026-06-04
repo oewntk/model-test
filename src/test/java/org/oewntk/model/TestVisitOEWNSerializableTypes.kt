@@ -8,13 +8,13 @@ import org.junit.Test
 import org.oewntk.model.Lex.Groups.lexByLemmaThenByKey2
 import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
-import org.oewntk.model.LibVisitTypes.visit
+import org.oewntk.model.LibVisitSerializableTypes.visit
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
 import kotlin.collections.List
 
-class TestVisitSerializableTypes {
+class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testSense() {

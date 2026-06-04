@@ -6,7 +6,7 @@ package org.oewntk.model
 import org.junit.BeforeClass
 import org.junit.Test
 import org.oewntk.model.LibTestGen.genDummyMap
-import org.oewntk.model.LibVisitTypes.visit
+import org.oewntk.model.LibVisitSerializableTypes.visit
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
 
 class TestVisitTypes {
