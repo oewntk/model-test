@@ -1,13 +1,15 @@
-/*
- * Copyright (c) 2021-2024. Bernard Bou.
- */
-package org.oewntk.model
+package org.oewntk.model.data
 
 import org.junit.BeforeClass
 import org.junit.Test
 import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.senseSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
+import org.oewntk.model.toData
+import org.oewntk.model.toLexesData
+import org.oewntk.model.toSensesData
+import org.oewntk.model.toSynsetsData
+import org.oewntk.ser.`in`.LibTestsSerCommon
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
@@ -15,14 +17,14 @@ import org.oewntk.ser.`in`.LibTestsSerCommon.ps
 class TestDataSerializables {
 
     @Test
-    fun testRawLexForce() {
+    fun testLexForce() {
         val lex = model.lexResolver1("force", "n")
         val y = lex.toData()
         ps.println(y)
     }
 
     @Test
-    fun testRawSynsetForce() {
+    fun testSynsetForce() {
         val synset = model.synsetResolver("05201846-n")
         val y = synset.toData()
         ps.println(y)

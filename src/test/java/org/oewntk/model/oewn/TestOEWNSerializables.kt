@@ -1,13 +1,20 @@
 /*
  * Copyright (c) 2021-2024. Bernard Bou.
  */
-package org.oewntk.model
+package org.oewntk.model.oewn
 
 import org.junit.BeforeClass
 import org.junit.Test
+import org.oewntk.model.HyperMap1
+import org.oewntk.model.Lemma
+import org.oewntk.model.Lex
 import org.oewntk.model.Lex.Groups.lexByLemmaThenByKey2
 import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
+import org.oewntk.model.Sense
+import org.oewntk.model.Synset
+import org.oewntk.model.SynsetType
+import org.oewntk.model.toOEWNData
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
