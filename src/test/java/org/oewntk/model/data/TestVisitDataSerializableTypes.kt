@@ -5,10 +5,7 @@ package org.oewntk.model.data
 
 import org.junit.BeforeClass
 import org.junit.Test
-import org.oewntk.model.HyperMap1
-import org.oewntk.model.Lemma
 import org.oewntk.model.Lex
-import org.oewntk.model.Lex.Groups.lexByLemmaThenByKey2
 import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
 import org.oewntk.model.LibVisitSerializableTypes.visit
