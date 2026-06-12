@@ -9,7 +9,6 @@ import org.oewntk.model.toData
 import org.oewntk.model.toLexesData
 import org.oewntk.model.toSensesData
 import org.oewntk.model.toSynsetsData
-import org.oewntk.ser.`in`.LibTestsSerCommon
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps

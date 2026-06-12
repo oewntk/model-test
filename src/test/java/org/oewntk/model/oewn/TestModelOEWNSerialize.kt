@@ -3,9 +3,7 @@ package org.oewntk.model.oewn
 import org.junit.BeforeClass
 import org.junit.Test
 import org.oewntk.model.Filename
-import org.oewntk.model.LibTestGen
 import org.oewntk.model.LibTestGen.genModelSerializables
-import org.oewntk.ser.`in`.LibTestsSerCommon
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps

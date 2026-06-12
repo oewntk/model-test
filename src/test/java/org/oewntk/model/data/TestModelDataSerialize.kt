@@ -6,7 +6,6 @@ import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.senseSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
 import org.oewntk.model.toData
-import org.oewntk.ser.`in`.LibTestsSerCommon
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
