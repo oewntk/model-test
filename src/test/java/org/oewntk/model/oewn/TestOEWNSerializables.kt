@@ -34,8 +34,8 @@ class TestOEWNSerializables {
             "77777777-n",
             SynsetType.N,
             "domain",
-            arrayOf("member1", "member2"),
-            arrayOf("definition", "definition2"),
+            setOf("member1", "member2"),
+            listOf("definition", "definition2"),
         )
         val serializable: Map<String, Any> = synset.toOEWNData()
         ps.println(serializable)
