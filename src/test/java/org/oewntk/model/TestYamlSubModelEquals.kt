@@ -5,13 +5,14 @@ package org.oewntk.model
 
 import org.junit.BeforeClass
 import org.junit.Test
-import org.oewntk.model.LibModelEquals.testData
-import org.oewntk.model.LibModelEquals.testZipLexes
-import org.oewntk.model.LibModelEquals.testZipSenses
-import org.oewntk.model.LibModelEquals.testZipSynsets
+import org.oewntk.model.ModelEquals.checkDataEq
+import org.oewntk.model.ModelEquals.checkZipLexesEq
+import org.oewntk.model.ModelEquals.checkZipSensesEq
+import org.oewntk.model.ModelEquals.checkZipSynsetsEq
 import org.oewntk.model.LibModelSubset.subset
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.model
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.modelB
+import kotlin.test.DefaultAsserter.fail
 
 class TestYamlSubModelEquals {
 
@@ -22,28 +23,40 @@ class TestYamlSubModelEquals {
 
     @Test
     fun testSubModelData() {
-        testData(subModel, subModelB)
+        checkDataEq(subModel, subModelB)
     }
 
     @Test
     fun testZipLexesSubModel() {
         val (lexes1, _, _) = subModel
         val (lexes2, _, _) = subModelB
-        testZipLexes(lexes1, lexes2)
+        try {
+            checkZipLexesEq(lexes1, lexes2)
+        } catch (e: IllegalStateException) {
+            fail(e.message)
+        }
     }
 
     @Test
     fun testZipSynsetsSubModel() {
         val (_, synsets1, _) = subModel
         val (_, synsets2, _) = subModelB
-        testZipSynsets(synsets1, synsets2)
+        try {
+            checkZipSynsetsEq(synsets1, synsets2)
+        } catch (e: IllegalStateException) {
+            fail(e.message)
+        }
     }
 
     @Test
     fun testZipSensesSubModel() {
         val (_, _, senses1) = subModel
         val (_, _, senses2) = subModelB
-        testZipSenses(senses1, senses2)
+        try {
+            checkZipSensesEq(senses1, senses2)
+        } catch (e: IllegalStateException) {
+            fail(e.message)
+        }
     }
 
     companion object {

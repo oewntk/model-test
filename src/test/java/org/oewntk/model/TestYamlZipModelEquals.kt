@@ -6,11 +6,12 @@ package org.oewntk.model
 import org.junit.BeforeClass
 import org.junit.Test
 import org.oewntk.model.Lex.Companion.lexComparator
-import org.oewntk.model.LibModelEquals.testZipLexes
-import org.oewntk.model.LibModelEquals.testZipSenses
-import org.oewntk.model.LibModelEquals.testZipSynsets
+import org.oewntk.model.ModelEquals.checkZipLexesEq
+import org.oewntk.model.ModelEquals.checkZipSensesEq
+import org.oewntk.model.ModelEquals.checkZipSynsetsEq
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.model
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.modelB
+import kotlin.test.DefaultAsserter.fail
 
 class TestYamlZipModelEquals {
 
@@ -18,21 +19,33 @@ class TestYamlZipModelEquals {
     fun testZipLexesModel() {
         val lexes1 = model.lexes.toSortedSet(lexComparator)
         val lexes2 = modelB.lexes.toSortedSet(lexComparator)
-        testZipLexes(lexes1, lexes2)
+        try {
+            checkZipLexesEq(lexes1, lexes2)
+        } catch (e: IllegalStateException) {
+            fail(e.message)
+        }
     }
 
     @Test
     fun testZipSynsetsModel() {
         val synsets1 = model.synsets.toSortedSet()
         val synsets2 = modelB.synsets.toSortedSet()
-        testZipSynsets(synsets1, synsets2)
+        try {
+            checkZipSynsetsEq(synsets1, synsets2)
+        } catch (e: IllegalStateException) {
+            fail(e.message)
+        }
     }
 
     @Test
     fun testZipSensesModel() {
         val senses1 = model.senses.toSortedSet()
         val senses2 = modelB.senses.toSortedSet()
-        testZipSenses(senses1, senses2)
+        try {
+            checkZipSensesEq(senses1, senses2)
+        } catch (e: IllegalStateException) {
+            fail(e.message)
+        }
     }
 
     companion object {

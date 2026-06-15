@@ -7,7 +7,7 @@ import junit.framework.TestCase.assertTrue
 import org.junit.BeforeClass
 import org.junit.Test
 import org.oewntk.model.Lex.Companion.lexComparator
-import org.oewntk.model.LibModelEquals.testData
+import org.oewntk.model.ModelEquals.checkDataEq
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.model
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.modelB
 
@@ -25,14 +25,14 @@ class TestYamlModelEquals {
     fun testModelData() {
         val data1 = Triple(model.lexes, model.synsets, model.senses)
         val data2 = Triple(modelB.lexes, modelB.synsets, modelB.senses)
-        testData(data1, data2)
+        checkDataEq(data1, data2)
     }
 
     @Test
     fun testModelSortedData() {
         val data1 = Triple(model.lexes.toSortedSet(lexComparator), model.synsets.toSortedSet(), model.senses.toSortedSet())
         val data2 = Triple(modelB.lexes.toSortedSet(lexComparator), modelB.synsets.toSortedSet(), modelB.senses.toSortedSet())
-        testData(data1, data2)
+        checkDataEq(data1, data2)
     }
 
     companion object {
