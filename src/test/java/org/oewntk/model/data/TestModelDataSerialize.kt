@@ -15,9 +15,9 @@ class TestModelDataSerialize {
     @Test
     fun testModelSerialization() {
         val y = model.toData(
-            whichLexes = model.lexSubset(howMany = 5),
-            whichSynsets = model.synsetSubset(howMany = 5),
-            whichSenses = model.senseSubset(howMany = 5)
+            whichLexes = model.lexSubset(howMany = 5).asSequence(),
+            whichSynsets = model.synsetSubset(howMany = 5).asSequence(),
+            whichSenses = model.senseSubset(howMany = 5).asSequence()
         )
         ps.println(y)
     }

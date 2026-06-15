@@ -16,6 +16,7 @@ import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
 import kotlin.collections.List
+import kotlin.collections.asSequence
 
 class TestVisitDataSerializableTypes {
 
@@ -61,7 +62,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testRandomSynsets() {
-        val someSynsets: Sequence<Synset> = model.synsetSubset()
+        val someSynsets: Sequence<Synset> = model.synsetSubset().asSequence()
         val serializables: List<Map<String, Any>> = someSynsets.map { it.toData() }.toList()
         ps.println(serializables.joinToString("\n\n"))
         val visited = serializables.map { visit(it) }
@@ -90,7 +91,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testRandomLexes() {
-        val someLexes: Sequence<Lex> = model.lexSubset()
+        val someLexes: Sequence<Lex> = model.lexSubset().asSequence().asSequence()
         val serializables: List<Map<String, Any>> = someLexes.map { it.toData() }.toList()
         ps.println(serializables.joinToString(separator = "\n\n"))
         val visited = serializables.map { visit(it) }

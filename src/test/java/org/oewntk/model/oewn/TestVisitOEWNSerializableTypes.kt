@@ -64,7 +64,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testRandomSynsets() {
-        val someSynsets: Sequence<Synset> = model.synsetSubset()
+        val someSynsets: Sequence<Synset> = model.synsetSubset().asSequence()
         val serializables: List<Map<String, Any>> = someSynsets.map { it.toOEWNData() }.toList()
         ps.println(serializables.joinToString("\n\n"))
         val visited = serializables.map { visit(it) }
@@ -93,7 +93,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testRandomLexes() {
-        val someLexes: Sequence<Lex> = model.lexSubset()
+        val someLexes: Sequence<Lex> = model.lexSubset().asSequence()
         val serializables: List<Map<String, Any>> = someLexes.map { it.toOEWNData(model.senseResolver) }.toList()
         ps.println(serializables.joinToString(separator = "\n\n"))
         val visited = serializables.map { visit(it) }
@@ -102,7 +102,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testSomeLexesByLemmaThenByKey2() {
-        val someLexes: Sequence<Lex> = model.lexSubset(howMany = 5)
+        val someLexes: Sequence<Lex> = model.lexSubset(howMany = 5).asSequence()
         val map: HyperMap1 = someLexes.lexByLemmaThenByKey2()
         val serializableMap: Map<Lemma, Any> = map.toOEWNData(model.senseResolver)
         ps.println(serializableMap)

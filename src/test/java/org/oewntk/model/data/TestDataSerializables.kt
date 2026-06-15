@@ -81,19 +81,19 @@ class TestDataSerializables {
 
     @Test
     fun testLexes() {
-        val y = model.lexSubset(howMany = 5).toLexesData()
+        val y = model.lexSubset(howMany = 5).asSequence().toLexesData()
         ps.println(y)
     }
 
     @Test
     fun testSynsets() {
-        val y = model.synsetSubset(howMany = 5).toSynsetsData()
+        val y = model.synsetSubset(howMany = 5).asSequence().toSynsetsData()
         ps.println(y)
     }
 
     @Test
     fun testSenses() {
-        val y = model.senseSubset(howMany = 5).toSensesData()
+        val y = model.senseSubset(howMany = 5).asSequence().toSensesData()
         ps.println(y)
     }
 
