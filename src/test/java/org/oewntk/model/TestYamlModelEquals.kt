@@ -30,8 +30,8 @@ class TestYamlModelEquals {
 
     @Test
     fun testModelSortedData() {
-        val data1 = Triple(model.lexes.toSortedSet(lexComparator), model.synsets.toSortedSet(), model.senses.toSortedSet())
-        val data2 = Triple(modelB.lexes.toSortedSet(lexComparator), modelB.synsets.toSortedSet(), modelB.senses.toSortedSet())
+        val data1 = Triple(model.lexes.sortedWith(lexComparator), model.synsets.sorted(), model.senses.sorted())
+        val data2 = Triple(modelB.lexes.sortedWith(lexComparator), modelB.synsets.sorted(), modelB.senses.sorted())
         checkDataEq(data1, data2)
     }
 

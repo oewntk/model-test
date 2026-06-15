@@ -17,8 +17,8 @@ class TestYamlZipModelEquals {
 
     @Test
     fun testZipLexesModel() {
-        val lexes1 = model.lexes.toSortedSet(lexComparator)
-        val lexes2 = modelB.lexes.toSortedSet(lexComparator)
+        val lexes1 = model.lexes.sortedWith(lexComparator)
+        val lexes2 = modelB.lexes.sortedWith(lexComparator)
         try {
             checkZipLexesEq(lexes1, lexes2)
         } catch (e: IllegalStateException) {
@@ -28,8 +28,8 @@ class TestYamlZipModelEquals {
 
     @Test
     fun testZipSynsetsModel() {
-        val synsets1 = model.synsets.toSortedSet()
-        val synsets2 = modelB.synsets.toSortedSet()
+        val synsets1 = model.synsets.sorted()
+        val synsets2 = modelB.synsets.sorted()
         try {
             checkZipSynsetsEq(synsets1, synsets2)
         } catch (e: IllegalStateException) {
@@ -39,8 +39,8 @@ class TestYamlZipModelEquals {
 
     @Test
     fun testZipSensesModel() {
-        val senses1 = model.senses.toSortedSet()
-        val senses2 = modelB.senses.toSortedSet()
+        val senses1 = model.senses.sorted()
+        val senses2 = modelB.senses.sorted()
         try {
             checkZipSensesEq(senses1, senses2)
         } catch (e: IllegalStateException) {
