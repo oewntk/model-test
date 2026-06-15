@@ -6,7 +6,8 @@ package org.oewntk.model
 import junit.framework.TestCase.assertTrue
 import org.junit.BeforeClass
 import org.junit.Test
-import org.oewntk.model.LibModelSubset.subset
+import org.oewntk.model.Lex.Companion.lexComparator
+import org.oewntk.model.LibModelEquals.testData
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.model
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.modelB
 
@@ -14,13 +15,24 @@ class TestYamlModelEquals {
 
     @Test
     fun testModel() {
-        val from = (1000..10000).random()
-        val howMany = 20
-        val (lexes1, senses1, synsets1) = model.subset(from=from, howMany=howMany)
-        val (lexes2, senses2, synsets2) = modelB.subset(from=from, howMany=howMany)
-        assertTrue( lexes1.toSet() == lexes2.toSet())
-        assertTrue( senses1.toSet() == senses2.toSet())
-        assertTrue( synsets1.toSet() == synsets2.toSet())
+        assertTrue(model.lexes == modelB.lexes)
+        assertTrue(model.synsets == modelB.synsets)
+        assertTrue(model.senses == modelB.senses)
+        assertTrue(model == modelB)
+    }
+
+    @Test
+    fun testModelData() {
+        val data1 = Triple(model.lexes, model.synsets, model.senses)
+        val data2 = Triple(modelB.lexes, modelB.synsets, modelB.senses)
+        testData(data1, data2)
+    }
+
+    @Test
+    fun testModelSortedData() {
+        val data1 = Triple(model.lexes.toSortedSet(lexComparator), model.synsets.toSortedSet(), model.senses.toSortedSet())
+        val data2 = Triple(modelB.lexes.toSortedSet(lexComparator), modelB.synsets.toSortedSet(), modelB.senses.toSortedSet())
+        testData(data1, data2)
     }
 
     companion object {
