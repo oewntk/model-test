@@ -91,7 +91,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testRandomLexes() {
-        val someLexes: Sequence<Lex> = model.lexSubset().asSequence().asSequence()
+        val someLexes: Sequence<Lex> = model.lexSubset().asSequence()
         val serializables: List<Map<String, Any>> = someLexes.map { it.toData() }.toList()
         ps.println(serializables.joinToString(separator = "\n\n"))
         val visited = serializables.map { visit(it) }
