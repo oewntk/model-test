@@ -6,7 +6,6 @@ package org.oewntk.model
 import junit.framework.TestCase.assertTrue
 import org.junit.BeforeClass
 import org.junit.Test
-import org.oewntk.model.Lex.Companion.lexComparator
 import org.oewntk.model.ModelEquals.checkDataEq
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.model
 import org.oewntk.yaml.`in`.LibTestsYamlCommon.modelB
@@ -30,8 +29,8 @@ class TestYamlModelEquals {
 
     @Test
     fun testModelSortedData() {
-        val data1 = Triple(model.lexes.sortedWith(lexComparator), model.synsets.sorted(), model.senses.sorted())
-        val data2 = Triple(modelB.lexes.sortedWith(lexComparator), modelB.synsets.sorted(), modelB.senses.sorted())
+        val data1 = Triple(model.lexes.sorted(), model.synsets.sorted(), model.senses.sorted())
+        val data2 = Triple(modelB.lexes.sorted(), modelB.synsets.sorted(), modelB.senses.sorted())
         checkDataEq(data1, data2)
     }
 

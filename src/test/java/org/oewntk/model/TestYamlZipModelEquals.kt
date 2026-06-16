@@ -5,7 +5,6 @@ package org.oewntk.model
 
 import org.junit.BeforeClass
 import org.junit.Test
-import org.oewntk.model.Lex.Companion.lexComparator
 import org.oewntk.model.ModelEquals.checkZipLexesEq
 import org.oewntk.model.ModelEquals.checkZipSensesEq
 import org.oewntk.model.ModelEquals.checkZipSynsetsEq
@@ -17,8 +16,8 @@ class TestYamlZipModelEquals {
 
     @Test
     fun testZipLexesModel() {
-        val lexes1 = model.lexes.sortedWith(lexComparator)
-        val lexes2 = modelB.lexes.sortedWith(lexComparator)
+        val lexes1 = model.lexes.sorted()
+        val lexes2 = modelB.lexes.sorted()
         try {
             checkZipLexesEq(lexes1, lexes2)
         } catch (e: IllegalStateException) {
