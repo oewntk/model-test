@@ -26,11 +26,10 @@ class TestVisit {
         ps.println(s)
     }
 
-    companion object {
-
-        @JvmStatic
-        @BeforeClass
-        fun init() {
-        }
-    }
+    // companion object {
+    //     @JvmStatic
+    //     @BeforeClass
+    //     fun init() {
+    //     }
+    // }
 }
