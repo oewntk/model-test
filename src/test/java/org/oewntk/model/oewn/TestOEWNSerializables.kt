@@ -18,7 +18,7 @@ class TestOEWNSerializables {
     @Test
     fun testDummyLex() {
         val lex = Lex("jest", "n", listOf("jest%1:10:00::", "jest%1:04:00::"))
-        val serializable: Map<String, Any> = lex.toOEWNData(model.senseResolver)
+        val serializable: Map<String, Any> = lex.toOEWNDataValue(model.senseResolver)
         ps.println(serializable)
     }
 
@@ -31,7 +31,7 @@ class TestOEWNSerializables {
             setOf("member1", "member2"),
             listOf("definition", "definition2"),
         )
-        val serializable: Map<String, Any> = synset.toOEWNData()
+        val serializable: Map<String, Any> = synset.toOEWNDataValue()
         ps.println(serializable)
     }
 
@@ -54,7 +54,7 @@ class TestOEWNSerializables {
     @Test
     fun testSynset() {
         val synset: Synset = model.synsetResolver("05042508-n")
-        val serializable: Map<String, Any> = synset.toOEWNData()
+        val serializable: Map<String, Any> = synset.toOEWNDataValue()
         ps.println(serializable)
     }
 
@@ -63,21 +63,21 @@ class TestOEWNSerializables {
         val someSynsets: Sequence<Synset> = arrayOf("05042508-n", "05201846-n", "11479041-n")
             .map(model.synsetResolver)
             .asSequence()
-        val serializables: Sequence<Map<String, Any>> = someSynsets.map { it.toOEWNData() }
+        val serializables: Sequence<Map<String, Any>> = someSynsets.map { it.toOEWNDataValue() }
         ps.println(serializables.joinToString(separator = "\n\n"))
     }
 
     @Test
     fun testRandomSynsets() {
         val someSynsets: Sequence<Synset> = model.synsetSubset().asSequence()
-        val serializables: Sequence<Map<String, Any>> = someSynsets.map { it.toOEWNData() }
+        val serializables: Sequence<Map<String, Any>> = someSynsets.map { it.toOEWNDataValue() }
         ps.println(serializables.joinToString("\n\n"))
     }
 
     @Test
     fun testLex() {
         val lex: Lex = model.lexResolver1("jest", "n")
-        val serializable: Map<String, Any> = lex.toOEWNData(model.senseResolver)
+        val serializable: Map<String, Any> = lex.toOEWNDataValue(model.senseResolver)
         ps.println(serializable)
     }
 
@@ -86,14 +86,14 @@ class TestOEWNSerializables {
         val someLexes: Sequence<Lex> = arrayOf("force", "lead", "row", "bow", "galore")
             .flatMap(model.lexResolver)
             .asSequence()
-        val serializables: Sequence<Map<String, Any>> = someLexes.map { it.toOEWNData(model.senseResolver) }
+        val serializables: Sequence<Map<String, Any>> = someLexes.map { it.toOEWNDataValue(model.senseResolver) }
         ps.println(serializables.joinToString(separator = "\n\n"))
     }
 
     @Test
     fun testRandomLexes() {
         val someLexes: Sequence<Lex> = model.lexSubset().asSequence()
-        val serializables: Sequence<Map<String, Any>> = someLexes.map { it.toOEWNData(model.senseResolver) }
+        val serializables: Sequence<Map<String, Any>> = someLexes.map { it.toOEWNDataValue(model.senseResolver) }
         ps.println(serializables.joinToString(separator = "\n\n"))
     }
 
