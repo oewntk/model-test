@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2021-2024. Bernard Bou.
  */
-package org.oewntk.model
+package org.oewntk.model.equal
 
 import junit.framework.TestCase.assertTrue
 import org.junit.BeforeClass
