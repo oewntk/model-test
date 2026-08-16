@@ -7,7 +7,7 @@
 
     <groupId>io.github.oewntk</groupId>
     <artifactId>model-test</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.1-SNAPSHOT</version>
     <name>model-test</name>
     <description>Wordnet model.</description>
     <url>https://github.com/oewntk/model</url>
@@ -36,13 +36,13 @@
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>model</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>model</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1-SNAPSHOT</version>
             <classifier>tests</classifier>
             <type>test-jar</type>
             <scope>test</scope>
@@ -50,19 +50,19 @@
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>fromser</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>fromyaml</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>fromser</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1-SNAPSHOT</version>
             <classifier>tests</classifier>
             <type>test-jar</type>
             <scope>test</scope>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>fromyaml</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1-SNAPSHOT</version>
             <classifier>tests</classifier>
             <type>test-jar</type>
             <scope>test</scope>
