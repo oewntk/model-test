@@ -2,13 +2,10 @@ package org.oewntk.model.data
 
 import org.junit.BeforeClass
 import org.junit.Test
+import org.oewntk.model.*
 import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.senseSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
-import org.oewntk.model.toData
-import org.oewntk.model.toLexesData
-import org.oewntk.model.toSensesData
-import org.oewntk.model.toSynsetsData
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
@@ -24,14 +21,14 @@ class TestDataSerializables {
 
     @Test
     fun testSynsetForce() {
-        val synset = model.synsetResolver("05201846-n")
+        val synset = model.synsetResolver(SynsetId("05201846-n"))
         val y = synset.toData()
         ps.println(y)
     }
 
     @Test
     fun testSenseForce() {
-        val sense = model.senseResolver("force%1:07:01::")
+        val sense = model.senseResolver(SenseKey("force%1:07:01::"))
         val y = sense.toData()
         ps.println(y)
     }
@@ -74,7 +71,7 @@ class TestDataSerializables {
             "force%1:07:02::",
             "force%1:04:00::"
         )
-            .map { model.senseResolver(it) }
+            .map { model.senseResolver(SenseKey(it)) }
             .toSensesData()
         ps.println(y)
     }

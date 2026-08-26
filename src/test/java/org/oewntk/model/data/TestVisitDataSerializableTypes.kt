@@ -10,7 +10,9 @@ import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
 import org.oewntk.model.LibVisitSerializableTypes.visit
 import org.oewntk.model.Sense
+import org.oewntk.model.SenseKey
 import org.oewntk.model.Synset
+import org.oewntk.model.SynsetId
 import org.oewntk.model.toData
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
@@ -22,7 +24,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testSense() {
-        val sense: Sense = model.senseResolver("jest%1:10:00::")
+        val sense: Sense = model.senseResolver(SenseKey("jest%1:10:00::"))
         val serializable: Map<String, Any> = sense.toData()
         ps.println(serializable)
         val visited = visit(serializable)
@@ -32,6 +34,7 @@ class TestVisitDataSerializableTypes {
     @Test
     fun testSomeSenses() {
         val someSenses: Sequence<Sense> = arrayOf("force%1:07:00::", "force%1:07:01::", "force%1:19:00::")
+            .map(::SenseKey)
             .map(model.senseResolver)
             .asSequence()
         val serializables: List<Map<String, Any>> = someSenses.map { it.toData() }.toList()
@@ -42,7 +45,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testSynset() {
-        val synset: Synset = model.synsetResolver("05042508-n")
+        val synset: Synset = model.synsetResolver(SynsetId("05042508-n"))
         val serializable: Map<String, Any> = synset.toData()
         ps.println(serializable)
         val visited = visit(serializable)
@@ -52,6 +55,7 @@ class TestVisitDataSerializableTypes {
     @Test
     fun testSomeSynsets() {
         val someSynsets: Sequence<Synset> = arrayOf("05042508-n", "05201846-n", "11479041-n")
+            .map(::SynsetId)
             .map(model.synsetResolver)
             .asSequence()
         val serializables: List<Map<String, Any>> = someSynsets.map { it.toData() }.toList()
@@ -67,7 +71,7 @@ class TestVisitDataSerializableTypes {
         ps.println(serializables.joinToString("\n\n"))
         val visited = serializables.map { visit(it) }
         ps.println(visited)
-     }
+    }
 
     @Test
     fun testLex() {

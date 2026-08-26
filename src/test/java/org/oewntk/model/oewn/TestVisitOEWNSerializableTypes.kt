@@ -18,7 +18,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testSense() {
-        val sense: Sense = model.senseResolver("jest%1:10:00::")
+        val sense: Sense = model.senseResolver(SenseKey("jest%1:10:00::"))
         val serializable: Map<String, Any> = sense.toOEWNData()
         ps.println(serializable)
         val visited = visit(serializable)
@@ -28,6 +28,7 @@ class TestVisitOEWNSerializableTypes {
     @Test
     fun testSomeSenses() {
         val someSenses: Sequence<Sense> = arrayOf("force%1:07:00::", "force%1:07:01::", "force%1:19:00::")
+            .map(::SenseKey)
             .map(model.senseResolver)
             .asSequence()
         val serializables: List<Map<String, Any>> = someSenses.map { it.toOEWNData() }.toList()
@@ -38,7 +39,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testSynset() {
-        val synset: Synset = model.synsetResolver("05042508-n")
+        val synset: Synset = model.synsetResolver(SynsetId("05042508-n"))
         val serializable: Map<String, Any> = synset.toOEWNDataValue()
         ps.println(serializable)
         val visited = visit(serializable)
@@ -48,6 +49,7 @@ class TestVisitOEWNSerializableTypes {
     @Test
     fun testSomeSynsets() {
         val someSynsets: Sequence<Synset> = arrayOf("05042508-n", "05201846-n", "11479041-n")
+            .map(::SynsetId)
             .map(model.synsetResolver)
             .asSequence()
         val serializables: List<Map<String, Any>> = someSynsets.map { it.toOEWNDataValue() }.toList()

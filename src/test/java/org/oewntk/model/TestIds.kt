@@ -7,8 +7,6 @@ import org.junit.BeforeClass
 import org.junit.Test
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
-import org.oewntk.ser.`in`.LibTestsSerCommon.ps
-import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class TestIds {
@@ -25,7 +23,7 @@ class TestIds {
     fun testSynsetIds() {
         model.synsets
             .forEach {
-                assert(it.synsetId.isSynsetId()) { println(it) }
+                assert(it.synsetId.id.isSynsetId()) { println(it) }
             }
     }
 
@@ -33,7 +31,7 @@ class TestIds {
     fun testSenseIds() {
         model.senses
             .forEach {
-                assert(it.senseId.isSenseKey()) { println(it) }
+                assert(it.senseId.id.isSenseKey()) { println(it) }
             }
     }
 
@@ -42,7 +40,7 @@ class TestIds {
         model.synsets
             .forEach {
                 it.flatRelations?.forEach { (_, targetId) ->
-                    assert(targetId.isSynsetId() || targetId.isSenseKey()) { println(it) }
+                    assert(targetId.id.isSynsetId() || targetId.id.isSenseKey()) { println(it) }
                 }
             }
     }
@@ -52,7 +50,7 @@ class TestIds {
         model.senses
             .forEach {
                 it.flatRelations?.forEach { (_, targetId) ->
-                    assertTrue(targetId.isSynsetId() || targetId.isSenseKey())
+                    assertTrue(targetId.id.isSynsetId() || targetId.id.isSenseKey())
                 }
             }
     }
