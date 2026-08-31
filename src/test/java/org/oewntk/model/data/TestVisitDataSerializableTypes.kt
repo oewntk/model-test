@@ -5,20 +5,13 @@ package org.oewntk.model.data
 
 import org.junit.BeforeClass
 import org.junit.Test
-import org.oewntk.model.Lex
+import org.oewntk.model.*
 import org.oewntk.model.LibModelSubset.lexSubset
 import org.oewntk.model.LibModelSubset.synsetSubset
 import org.oewntk.model.LibVisitSerializableTypes.visit
-import org.oewntk.model.Sense
-import org.oewntk.model.SenseKey
-import org.oewntk.model.Synset
-import org.oewntk.model.SynsetId
-import org.oewntk.model.toData
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import org.oewntk.ser.`in`.LibTestsSerCommon.ps
-import kotlin.collections.List
-import kotlin.collections.asSequence
 
 class TestVisitDataSerializableTypes {
 
@@ -75,7 +68,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testLex() {
-        val lex: Lex = model.lexResolver1("jest", "n")
+        val lex: Lex = model.lexResolver1(Lemma("jest"), "n")
         val serializable: Map<String, Any> = lex.toData()
         ps.println(serializable)
         val visited = visit(serializable)
@@ -84,7 +77,7 @@ class TestVisitDataSerializableTypes {
 
     @Test
     fun testSomeLexes() {
-        val someLexes: Sequence<Lex> = arrayOf("force", "lead", "row", "bow", "galore")
+        val someLexes: Sequence<Lex> = arrayOf(Lemma("force"), Lemma("lead"), Lemma("row"), Lemma("bow"), Lemma("galore"))
             .flatMap(model.lexResolver)
             .asSequence()
         val serializables: List<Map<String, Any>> = someLexes.map { it.toData() }.toList()

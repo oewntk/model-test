@@ -69,7 +69,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testLex() {
-        val lex: Lex = model.lexResolver1("jest", "n")
+        val lex: Lex = model.lexResolver1(Lemma("jest"), "n")
         val serializable: Map<String, Any> = lex.toOEWNDataValue(model.senseResolver)
         ps.println(serializable)
         val visited = visit(serializable)
@@ -78,7 +78,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testSomeLexes() {
-        val someLexes: Sequence<Lex> = arrayOf("force", "lead", "row", "bow", "galore")
+        val someLexes: Sequence<Lex> = arrayOf(Lemma("force"), Lemma("lead"), Lemma("row"), Lemma("bow"), Lemma("galore"))
             .flatMap(model.lexResolver)
             .asSequence()
         val serializables: List<Map<String, Any>> = someLexes.map { it.toOEWNDataValue(model.senseResolver) }.toList()
@@ -100,7 +100,7 @@ class TestVisitOEWNSerializableTypes {
     fun testSomeLexesByLemmaThenByKey2() {
         val someLexes: Sequence<Lex> = model.lexSubset(howMany = 5).asSequence()
         val map: HyperMap1 = someLexes.lexByLemmaThenByKey2()
-        val serializableMap: Map<Lemma, Any> = map.toOEWNData(model.senseResolver)
+        val serializableMap: Map<String, Any> = map.toOEWNData(model.senseResolver)
         ps.println(serializableMap)
         val visited = visit(serializableMap)
         ps.println(visited)

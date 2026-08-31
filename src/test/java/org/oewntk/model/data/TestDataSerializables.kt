@@ -14,7 +14,7 @@ class TestDataSerializables {
 
     @Test
     fun testLexForce() {
-        val lex = model.lexResolver1("force", "n")
+        val lex = model.lexResolver1(Lemma("force"), "n")
         val y = lex.toData()
         ps.println(y)
     }
@@ -35,25 +35,25 @@ class TestDataSerializables {
 
     @Test
     fun testLexesForce() {
-        val y = model.lexResolver("force").asSequence().toLexesData()
+        val y = model.lexResolver(Lemma("force")).asSequence().toLexesData()
         ps.println(y)
     }
 
     @Test
     fun testLexesLead() {
-        val y = model.lexResolver("lead").asSequence().toLexesData()
+        val y = model.lexResolver(Lemma("lead")).asSequence().toLexesData()
         ps.println(y)
     }
 
     @Test
     fun testLexesBow() {
-        val y = model.lexResolver("bow").asSequence().toLexesData()
+        val y = model.lexResolver(Lemma("bow")).asSequence().toLexesData()
         ps.println(y)
     }
 
     @Test
     fun testLexesRow() {
-        val y = model.lexResolver("row").asSequence().toLexesData()
+        val y = model.lexResolver(Lemma("row")).asSequence().toLexesData()
         ps.println(y)
     }
 

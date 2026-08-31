@@ -15,7 +15,7 @@ class TestIds {
     fun testLemmas() {
         model.lemmas
             .forEach {
-                assert(it.isLemma()) { println(it) }
+                assert(it.form.isLemma()) { println(it) }
             }
     }
 

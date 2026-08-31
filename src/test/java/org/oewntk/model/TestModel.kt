@@ -26,9 +26,9 @@ class TestModel {
 
     @Test
     fun testModelResolution() {
-        val l1 = model.lexFinder1("Californian", "n")
+        val l1 = model.lexFinder1(Lemma("Californian"), "n")
         ps.println(l1)
-        val l2 = model.lexFinder1("Californian", "a")
+        val l2 = model.lexFinder1(Lemma("Californian"), "a")
         ps.println(l2)
     }
 
