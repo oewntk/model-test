@@ -14,7 +14,7 @@ class TestDataSerializables {
 
     @Test
     fun testLexForce() {
-        val lex = model.lexResolver1(Lemma("force"), "n")
+        val lex = model.lexResolver1(Lemma("force"), Key2("n"))
         val y = lex.toData()
         ps.println(y)
     }

@@ -69,7 +69,7 @@ class TestVisitOEWNSerializableTypes {
 
     @Test
     fun testLex() {
-        val lex: Lex = model.lexResolver1(Lemma("jest"), "n")
+        val lex: Lex = model.lexResolver1(Lemma("jest"), Key2("n"))
         val serializable: Map<String, Any> = lex.toOEWNDataValue(model.senseResolver)
         ps.println(serializable)
         val visited = visit(serializable)
