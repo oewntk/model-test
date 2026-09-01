@@ -5,6 +5,9 @@ package org.oewntk.model
 
 import org.junit.BeforeClass
 import org.junit.Test
+import org.oewntk.model.LemmaImpl.Companion.isLemma
+import org.oewntk.model.SenseKeyImpl.Companion.isSenseKey
+import org.oewntk.model.SynsetIdImpl.Companion.isSynsetId
 import org.oewntk.ser.`in`.LibTestsSerCommon.checkOrig
 import org.oewntk.ser.`in`.LibTestsSerCommon.model
 import kotlin.test.assertTrue
